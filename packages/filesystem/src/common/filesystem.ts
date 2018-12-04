@@ -129,6 +129,11 @@ export interface FileSystem extends JsonRpcServer<FileSystemClient> {
      */
     access(uri: string, mode?: number): Promise<boolean>
 
+    /**
+     * Returns the path of the given file URI, specific to the backend's operating system.
+     * If the URI is not a file URI, undefined is returned.
+     */
+    getFsPath(uri: string): Promise<string | undefined>
 }
 
 export namespace FileAccess {
